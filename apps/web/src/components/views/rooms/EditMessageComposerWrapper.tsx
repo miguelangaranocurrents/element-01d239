@@ -89,10 +89,12 @@ export function EditMessageComposerWrapper(props: IEditMessageComposerProps): JS
         />
     );
 
+    // Render without a wrapping element so that the editor stays a direct child of the event tile body,
+    // where it is allowed to overflow (e.g. to show the autocomplete above the composer).
     return (
-        <div>
+        <>
             <MessageComposerUrlPreviewWrapper urlPreviewVm={vm} />
             {editor}
-        </div>
+        </>
     );
 }
